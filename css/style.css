@@ -18,6 +18,10 @@
   width: 1000px;
 }
 
+.carousel-container:hover .hover-container {
+  display: block;
+}
+
 .slides-container {
   height: 100%;
 }
@@ -41,13 +45,13 @@
 
   transform: translateX(-50%);
 
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
 
   background-color: antiquewhite;
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: 1rem;
 
   text-align: center;
 
@@ -60,4 +64,33 @@
 
 .prev-slide {
   top: 10px;
+}
+
+.hover-container {
+  height: 100%;
+  width: 30%;
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  display: none;
+}
+
+.thumb-container {
+  height: 100%;
+}
+
+.thumb-image {
+  width: 100%;
+  height: 20%;
+
+  object-fit: cover;
+
+  filter: brightness(40%);
+}
+
+.thumb-active {
+  filter: brightness(100%);
 }
