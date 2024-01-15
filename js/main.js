@@ -12,7 +12,6 @@ let thumbIndex = 0;
 for (i = 0; i < slidesArray.length; i++) {
   const slideName = slidesArray[i];
   let slideCount = i;
-  console.log("ciclo for " + slideCount);
 
   let activeSlide = slideCount == 0 ? "active" : "";
   let activeThumb = slideCount == 0 ? "thumb-active" : "";
@@ -44,9 +43,7 @@ for (i = 0; i < slidesArray.length; i++) {
     let newThumb = this;
     let newThumbIndex = parseInt(this.getAttribute("data-thumb-index"));
     thumbIndex = newThumbIndex;
-    console.log("premuta immagine " + thumbIndex);
     slideCount = thumbIndex;
-    console.log(slideCount);
     const newSlide = allSlides[newThumbIndex];
     newSlide.classList.add("active");
 
@@ -61,7 +58,6 @@ slidesContainer.innerHTML = slideHTML;
 
 nextButton.addEventListener("click", function () {
   slideCount = thumbIndex;
-  console.log("tasto premuto prima di incrementare " + slideCount);
   const allSlides = document.getElementsByClassName("slide");
   const allThumb = document.getElementsByClassName("thumb-image");
 
@@ -78,7 +74,6 @@ nextButton.addEventListener("click", function () {
     slideCount = 0;
     thumbIndex = 0;
   }
-  console.log(slideCount);
   const newSlide = allSlides[slideCount];
   newSlide.classList.add("active");
 
