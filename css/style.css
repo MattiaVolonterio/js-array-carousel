@@ -89,6 +89,8 @@
   object-fit: cover;
 
   filter: brightness(40%);
+
+  cursor: pointer;
 }
 
 .thumb-active {

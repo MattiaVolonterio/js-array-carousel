@@ -19,13 +19,39 @@ for (i = 0; i < slidesArray.length; i++) {
     i + 1
   }" />`;
 
-  thumbHTML += `<img src="./img/${slideName}" class="thumb-image ${activeThumb}" alt="thumb ${
-    i + 1
-  }" />`;
+  //   thumbHTML += `<img src="./img/${slideName}" class="thumb-image ${activeThumb}" alt="thumb ${
+  //     i + 1
+  //   }" />`;
+
+  let thumbEl = document.createElement("img");
+  thumbEl.setAttribute("src", `./img/${slideName}`);
+  thumbEl.setAttribute("class", `thumb-image ${activeThumb}`);
+  thumbEl.setAttribute("alt", `thumb ${i + 1}`);
+  thumbEl.setAttribute("data-thumb-index", i);
+
+  thumbEl.addEventListener("click", function () {
+    const allSlides = document.getElementsByClassName("slide");
+    const allThumb = document.getElementsByClassName("thumb-image");
+
+    let currentSlide = document.querySelector(".slide.active");
+    currentSlide.classList.remove("active");
+
+    let oldThumb = document.querySelector(".thumb-image.thumb-active");
+    oldThumb.classList.remove("thumb-active");
+
+    let newThumb = this;
+    let newThumbIndex = this.getAttribute("data-thumb-index");
+    const newSlide = allSlides[newThumbIndex];
+    newSlide.classList.add("active");
+
+    newThumb.classList.add("thumb-active");
+  });
+
+  thumbContainer.append(thumbEl);
 }
 
 slidesContainer.innerHTML = slideHTML;
-thumbContainer.innerHTML = thumbHTML;
+// thumbContainer.innerHTML = thumbHTML;
 
 nextButton.addEventListener("click", function () {
   const allSlides = document.getElementsByClassName("slide");
