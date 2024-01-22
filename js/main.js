@@ -41,14 +41,7 @@ for (i = 0; i < slidesArray.length; i++) {
 slidesContainer.innerHTML = slideHTML;
 
 nextButton.addEventListener("click", function () {
-  getCurrents();
-
-  if (slideCount < slidesArray.length - 1) {
-    slideCount++;
-  } else {
-    slideCount = 0;
-  }
-  setNews(slideCount);
+  slideCount = goToNextSlide(slidesArray, slideCount);
 });
 
 prevButton.addEventListener("click", function () {
@@ -62,3 +55,7 @@ prevButton.addEventListener("click", function () {
 
   setNews(slideCount);
 });
+
+setInterval(function () {
+  slideCount = goToNextSlide(slidesArray, slideCount);
+}, 3000);

@@ -15,3 +15,17 @@ function setNews(index) {
   const newThumb = allThumb[index];
   newThumb.classList.add("thumb-active");
 }
+
+function goToNextSlide(slidesArray, slideCount) {
+  getCurrents();
+
+  if (slideCount < slidesArray.length - 1) {
+    slideCount++;
+  } else {
+    slideCount = 0;
+  }
+
+  setNews(slideCount);
+
+  return slideCount;
+}
