@@ -27,21 +27,12 @@ for (i = 0; i < slidesArray.length; i++) {
   thumbEl.setAttribute("data-thumb-index", i);
 
   thumbEl.addEventListener("click", function () {
-    const allSlides = document.getElementsByClassName("slide");
+    getCurrents();
 
-    let currentSlide = document.querySelector(".slide.active");
-    currentSlide.classList.remove("active");
-
-    let oldThumb = document.querySelector(".thumb-image.thumb-active");
-    oldThumb.classList.remove("thumb-active");
-
-    let newThumb = this;
     let newThumbIndex = parseInt(this.getAttribute("data-thumb-index"));
     slideCount = newThumbIndex;
-    const newSlide = allSlides[newThumbIndex];
-    newSlide.classList.add("active");
 
-    newThumb.classList.add("thumb-active");
+    setNews(newThumbIndex);
   });
 
   thumbContainer.append(thumbEl);
@@ -50,36 +41,18 @@ for (i = 0; i < slidesArray.length; i++) {
 slidesContainer.innerHTML = slideHTML;
 
 nextButton.addEventListener("click", function () {
-  const allSlides = document.getElementsByClassName("slide");
-  const allThumb = document.getElementsByClassName("thumb-image");
-
-  let currentSlide = document.querySelector(".slide.active");
-  currentSlide.classList.remove("active");
-
-  let currentThumb = document.querySelector(".thumb-image.thumb-active");
-  currentThumb.classList.remove("thumb-active");
+  getCurrents();
 
   if (slideCount < slidesArray.length - 1) {
     slideCount++;
   } else {
     slideCount = 0;
   }
-  const newSlide = allSlides[slideCount];
-  newSlide.classList.add("active");
-
-  const newThumb = allThumb[slideCount];
-  newThumb.classList.add("thumb-active");
+  setNews(slideCount);
 });
 
 prevButton.addEventListener("click", function () {
-  const allSlides = document.getElementsByClassName("slide");
-  const allThumb = document.getElementsByClassName("thumb-image");
-
-  let currentSlide = document.querySelector(".slide.active");
-  currentSlide.classList.remove("active");
-
-  let currentThumb = document.querySelector(".thumb-image.thumb-active");
-  currentThumb.classList.remove("thumb-active");
+  getCurrents();
 
   if (slideCount > 0) {
     slideCount--;
@@ -87,9 +60,5 @@ prevButton.addEventListener("click", function () {
     slideCount = slidesArray.length - 1;
   }
 
-  const newSlide = allSlides[slideCount];
-  newSlide.classList.add("active");
-
-  const newThumb = allThumb[slideCount];
-  newThumb.classList.add("thumb-active");
+  setNews(slideCount);
 });
