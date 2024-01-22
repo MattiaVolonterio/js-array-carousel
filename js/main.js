@@ -56,6 +56,16 @@ prevButton.addEventListener("click", function () {
   setNews(slideCount);
 });
 
-setInterval(function () {
+let intervalSetting = setInterval(function () {
   slideCount = goToNextSlide(slidesArray, slideCount);
 }, 3000);
+
+slidesContainer.addEventListener("mouseover", function () {
+  clearInterval(intervalSetting);
+});
+
+slidesContainer.addEventListener("mouseout", function () {
+  intervalSetting = setInterval(function () {
+    slideCount = goToNextSlide(slidesArray, slideCount);
+  }, 3000);
+});
