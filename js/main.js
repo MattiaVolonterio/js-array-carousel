@@ -1,3 +1,4 @@
+const carouselContainer = document.getElementById("carousel-container");
 const slidesContainer = document.getElementById("slides");
 const thumbContainer = document.getElementById("thumb");
 const hoverContainer = document.getElementById("hover-container");
@@ -63,49 +64,13 @@ let intervalSetting = setInterval(function () {
   slideCount = goToNextSlide(slidesArray, slideCount);
 }, 3000);
 
-// slides container hover
+// carousel container hover
 
-slidesContainer.addEventListener("mouseover", function () {
+carouselContainer.addEventListener("mouseover", function () {
   clearInterval(intervalSetting);
 });
 
-slidesContainer.addEventListener("mouseout", function () {
-  intervalSetting = setInterval(function () {
-    slideCount = goToNextSlide(slidesArray, slideCount);
-  }, 3000);
-});
-
-// hover container hover
-
-hoverContainer.addEventListener("mouseover", function () {
-  clearInterval(intervalSetting);
-});
-
-hoverContainer.addEventListener("mouseout", function () {
-  intervalSetting = setInterval(function () {
-    slideCount = goToNextSlide(slidesArray, slideCount);
-  }, 3000);
-});
-
-// next button hover
-
-nextButton.addEventListener("mouseover", function () {
-  clearInterval(intervalSetting);
-});
-
-nextButton.addEventListener("mouseout", function () {
-  intervalSetting = setInterval(function () {
-    slideCount = goToNextSlide(slidesArray, slideCount);
-  }, 3000);
-});
-
-// prev button hover
-
-prevButton.addEventListener("mouseover", function () {
-  clearInterval(intervalSetting);
-});
-
-prevButton.addEventListener("mouseout", function () {
+carouselContainer.addEventListener("mouseleave", function () {
   intervalSetting = setInterval(function () {
     slideCount = goToNextSlide(slidesArray, slideCount);
   }, 3000);
